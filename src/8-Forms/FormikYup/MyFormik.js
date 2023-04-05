@@ -1,8 +1,9 @@
 import React from 'react'
 import { useFormik } from 'formik'
+import validations from "./validations"
 
 const MyFormik = () => {
-    const { handleSubmit, handleChange} = useFormik({
+    const { handleSubmit, handleChange, errors, touched, handleBlur} = useFormik({
         initialValues: {
             name: "",
             email: "",
@@ -14,7 +15,8 @@ const MyFormik = () => {
         },
         onSubmit: (values) => {
             console.log(values)
-        }
+        },
+        validationSchema: validations
     })
   return (
     <form onSubmit={handleSubmit}>
@@ -23,16 +25,19 @@ const MyFormik = () => {
             name="name"
             placeholder="name"
             onChange={handleChange}
+            onBlur={handleBlur}
         />
         <br />
+        {errors.name && touched.name && <div>{errors.name}</div>}
         <input
             type="text"
             name="email"
             placeholder="email"
             onChange={handleChange}
+            onBlur={handleBlur}
         />
         <br />
-
+        {errors.email && touched.email && <div>{errors.email}</div>}
         <label>Male</label>
         <input 
             type="radio" 
@@ -78,13 +83,22 @@ const MyFormik = () => {
         <br />
         <label>Password</label>
         <br/>
-        <input name="password" onChange={handleChange}/>
+        <input 
+        name="password" 
+        onChange={handleChange}
+        onBlur={handleBlur}
+        />
         <br />
+        {errors.password && touched.password && <div>{errors.password}</div>}
         <label>ConfirmPassword</label>
         <br/>
-        <input name="confirmPassword" onChange={handleChange}/>
+        <input 
+        name="confirmPassword" 
+        onChange={handleChange}
+        onBlur={handleBlur}
+        />
         <br />
-
+        {errors.confirmPassword && touched.confirmPassword && <div>{errors.confirmPassword}</div>}
         <br/>
         <button type="submit">Kayıt ol</button>
     </form>
