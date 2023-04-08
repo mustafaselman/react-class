@@ -9,7 +9,9 @@
 // import UseEffectHook from './7-UseEffectHook/UseEffectHook';
 // import Forms from './8-Forms/Forms';
 // import Router from './9-Router/Router';
-import UseContext from './10-UseContextHook/UseContext';
+// import UseContext from './10-UseContextHook/UseContext';
+// import CSSStyling from './11-CSSStyling/CSSStyling';
+import ReduxToolkit from './12-ReduxToolkit/ReduxToolkit';
 import './App.css';
 
 function App() {
@@ -25,7 +27,9 @@ function App() {
     {/* <UseEffectHook/> */}
     {/* <Forms /> */}
     {/* <Router/> */}
-    <UseContext/>
+    {/* <UseContext/> */}
+    {/* <CSSStyling/> */}
+    <ReduxToolkit/>
     </div>
   );
 }
